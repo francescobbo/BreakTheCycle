@@ -1,13 +1,13 @@
 class ApiClient
   HOST = 'https://santander.openbankproject.com/'
   USER ="https://santander.openbankproject.com/obp/v3.0.0/users"
-  
+
   attr_reader :token
 
-  def initialize(username:, password:, consumer_key:)
-    @username = username
-    @password = password
-    @consumer_key = consumer_key
+  def initialize
+    @username = Rails.application.credentials.obp.username
+    @password = Rails.application.credentials.obp.password
+    @consumer_key = Rails.application.credentials.obp.consumer_key
   end
 
   def authentication
